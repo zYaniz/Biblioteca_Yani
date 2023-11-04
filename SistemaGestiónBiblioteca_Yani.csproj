@@ -88,6 +88,7 @@
     <Compile Include="Interfaz\frmPrincipal.xaml.cs">
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ModeloPag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -114,7 +115,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+    <Folder Include="Vista\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Interfaz\frmPrincipal.xaml">
       <SubType>Designer</SubType>

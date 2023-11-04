@@ -5,7 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaGestiónBiblioteca_Yani.Interfaz"
         mc:Ignorable="d"
-        Title="frmPrincipal" Height="500" Width="800">
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="frmPrincipal" Height="600" Width="850">
     <Grid>
+
+        <Border Background="#FFFFE8C6"
+                CornerRadius="20"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="622"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
     </Grid>
 </Window>
