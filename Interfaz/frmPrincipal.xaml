@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaGestiónBiblioteca_Yani.Interfaz"
         mc:Ignorable="d"
+        Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Background="Transparent"
         Title="frmPrincipal" Height="600" Width="850">
     <Grid>
 
@@ -21,6 +21,6 @@
                 <ColumnDefinition Width="622"/>
             </Grid.ColumnDefinitions>
         </Grid>
-
+        
     </Grid>
 </Window>

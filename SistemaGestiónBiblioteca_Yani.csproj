@@ -85,6 +85,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion\clsConexion.cs" />
     <Compile Include="Interfaz\frmPrincipal.xaml.cs">
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
     </Compile>
