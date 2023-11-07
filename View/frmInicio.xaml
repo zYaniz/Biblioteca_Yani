@@ -1,0 +1,212 @@
+﻿<Window x:Class="SistemaGestiónBiblioteca_Yani.View.frmInicio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaGestiónBiblioteca_Yani.View"
+        mc:Ignorable="d"
+        Title="frmInicio" Height="600" Width="850"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent">
+
+    <Grid>
+        <Border Background="#FFEADEA4"
+                CornerRadius="20"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Row="0" Grid.Column="0" Fill="#004F59"/>
+            <Rectangle Grid.Row="1" Grid.Column="0" Fill="#004F59"/>
+            <Rectangle Grid.Row="2" Grid.Column="0" Fill="#004F59"/>
+            <Rectangle Grid.Row="3" Grid.Column="0" Fill="#004F59"/>
+            <Rectangle Grid.Row="4" Grid.Column="0" Fill="#004F59"/>
+            <Rectangle Grid.Row="5" Grid.Column="0" Fill="#004F59"/>
+            <Rectangle Grid.Row="0" Grid.Column="1" Fill="#004F59"/>
+            <Rectangle Grid.Row="0" Grid.Column="2" Fill="#004F59"/>
+            <Rectangle Grid.Row="0" Grid.Column="3" Fill="#004F59"/>
+
+            <Border Grid.Column="0" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Bottom="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Bottom="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Column="2" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Bottom="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Column="3" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Bottom="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Right="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="0" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Right="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="0" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Right="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="0" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Right="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="0" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Right="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Label Grid.ColumnSpan="2"  
+               FontSize="40"  Content="Biblioteca YSF"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontFamily="AR CHRISTY" Foreground="#FFE4DFDF" />
+
+            <Button x:Name="btnUsuario" Content="Usuario" FontSize="23" Width="120" Height="40"
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Background="#FFFFFCD8"
+                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnUsuario_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Border Grid.Row="1" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/usuario_icon.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+            
+            <Button x:Name="btnLibro" Content="Libros" FontSize="23" Width="120" Height="40"
+                    Grid.Row="2"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Background="#FFFFFCD8"
+                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnLibro_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Border Grid.Row="2" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/libro_icon.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+            <Button x:Name="btnPrestamo" Content="Préstamo" FontSize="23" Width="120" Height="40"
+                    Grid.Row="3"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Background="#FFFFFCD8"
+                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnPrestamo_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Border Grid.Row="3" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/prestamo_icon.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+
+            <Button x:Name="btnCerrar" Content="Cerrar" FontSize="23" Width="120" Height="40"
+                    Grid.Row="4"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Background="#FFFFFCD8"
+                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnCerrar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Border Grid.Row="4" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/logout_icon.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+            <Border Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Row="2" Margin="17,90,-17,-20"
+                    >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/biblioteca.png"
+                            Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+            <TextBlock Text="Los libros son solo el principio para un conocimiento sin límites"
+                       Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"
+                       FontSize="46" Width="640"
+                       HorizontalAlignment="Left" VerticalAlignment="Top"
+                       TextWrapping="Wrap" FontFamily="Century" FontWeight="Bold" Foreground="#FF6B0000" Margin="10,52,0,0" Grid.ColumnSpan="3"/>
+        </Grid>
+    </Grid>
+</Window>

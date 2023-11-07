@@ -83,13 +83,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Clases\clsLibro.cs" />
+    <Compile Include="View\frmInicio.xaml.cs">
+      <DependentUpon>frmInicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmLibro.xaml.cs">
+      <DependentUpon>frmLibro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmPrestamo.xaml.cs">
+      <DependentUpon>frmPrestamo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmUsuario.xaml.cs">
+      <DependentUpon>frmUsuario.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\clsConexion.cs" />
-    <Compile Include="Interfaz\frmPrincipal.xaml.cs">
-      <DependentUpon>frmPrincipal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\ModeloPag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -117,14 +126,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
-    <Folder Include="Vista\" />
+    <Resource Include="Imagenes\inicio_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Interfaz\frmPrincipal.xaml">
+    <Page Include="View\frmInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\frmLibro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmPrestamo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\biblioteca.png" />
+    <Resource Include="Imagenes\libro_icon.png" />
+    <Resource Include="Imagenes\logout_icon.png" />
+    <Resource Include="Imagenes\prestamo_icon.png" />
+    <Resource Include="Imagenes\usuario_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

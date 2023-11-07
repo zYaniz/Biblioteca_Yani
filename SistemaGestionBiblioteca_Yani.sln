@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestiónBiblioteca_Yani", "SistemaGestiónBiblioteca_Yani.csproj", "{DB4F701B-0A39-4103-9694-15B78136DE48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestionBiblioteca_Yani", "SistemaGestionBiblioteca_Yani.csproj", "{DB4F701B-0A39-4103-9694-15B78136DE48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
