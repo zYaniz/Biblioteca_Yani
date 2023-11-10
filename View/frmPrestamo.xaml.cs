@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SistemaGestiónBiblioteca_Yani.Clases;
+using SistemaGestiónBiblioteca_Yani.Dtos;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SistemaGestiónBiblioteca_Yani.View
 {
-    /// <summary>
-    /// Lógica de interacción para frmPrestamo.xaml
-    /// </summary>
     public partial class frmPrestamo : Window
     {
         public frmPrestamo()
@@ -49,5 +38,63 @@ namespace SistemaGestiónBiblioteca_Yani.View
         {
             this.Close();
         }
+
+        private void btnSolicitar_Click(object sender, RoutedEventArgs e)
+        {
+            txtFechaAdicion.Text = System.DateTime.Now.ToString();
+            txtAdicionadoPor.Text = "admin";
+
+            string textoIngresado = txtSolPrestamo.Text.ToLower(); 
+
+            if (textoIngresado != "si" && textoIngresado != "no")
+            {
+                MessageBox.Show("Por favor, ingrese 'Si' o 'No' en el campo de préstamo.");
+                txtSolPrestamo.Text = string.Empty;
+            }
+            else
+            {
+                if (textoIngresado == "si")
+                {
+                    DateTime selectedDate = dtpFechaDevolucion.SelectedDate.GetValueOrDefault();
+                    DateTime fechaActual = DateTime.Now;
+                    DateTime fechaMaxima = fechaActual.AddDays(5);
+
+                    if (selectedDate < fechaActual || selectedDate > fechaMaxima)
+                    {
+                        MessageBox.Show("Por favor, elija una fecha entre hoy y máximo 5 días.");
+                        dtpFechaDevolucion.SelectedDate = null;
+                        return; 
+                    }
+                }
+
+                clsPrestamo prestamo = new clsPrestamo(
+                    txtSolLibro.Text,
+                    txtSolCedula.Text,
+                    txtSolPrestamo.Text,
+                    dtpFechaDevolucion.Text,
+                    txtAdicionadoPor.Text,
+                    txtFechaAdicion.Text);
+
+                dtoPrestamo prebdto = new dtoPrestamo();
+                if (prebdto.InsertarPrestamo(prestamo) == true)
+                {
+                    MessageBox.Show("Solicitud Exitosa");
+                }
+            }
+        }
+        private void btnGestion_Click(object sender, RoutedEventArgs e)
+        {
+            frmGestion ventana = new frmGestion();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void btnDevolucion_Click(object sender, RoutedEventArgs e)
+        {
+            frmDevolucion ventana = new frmDevolucion();
+            ventana.Show();
+            this.Close();
+        }
+
     }
 }

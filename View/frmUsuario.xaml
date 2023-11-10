@@ -12,6 +12,38 @@
         WindowStyle="None"
         Background="Transparent">
 
+    <Window.Resources>
+        <Style TargetType="TextBox" x:Key="PlaceholderStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border BorderBrush="#004F59" BorderThickness="2" CornerRadius="5">
+                            <Grid>
+                                <Border Background="Transparent" />
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                                <TextBlock x:Name="Placeholder" 
+                                       Text="{Binding Path=Tag, RelativeSource={RelativeSource AncestorType=TextBox}}" 
+                                       Foreground="Gray"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       Visibility="Collapsed"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                    <Condition Property="IsFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Border Background="#FFEADEA4"
                 CornerRadius="20"/>
@@ -27,10 +59,11 @@
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="160"/>
-                <ColumnDefinition Width="350"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="45"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="230"/>
 
             </Grid.ColumnDefinitions>
             <Rectangle Grid.Row="0" Grid.Column="0" Fill="#004F59"/>
@@ -42,6 +75,12 @@
             <Rectangle Grid.Row="0" Grid.Column="1" Fill="#004F59"/>
             <Rectangle Grid.Row="0" Grid.Column="2" Fill="#004F59"/>
             <Rectangle Grid.Row="0" Grid.Column="3" Fill="#004F59"/>
+            <Rectangle Grid.Row="0" Grid.Column="4" Fill="#004F59"/>
+            <Rectangle Grid.Row="1" Grid.Column="1" Fill="#004F59"/>
+            <Rectangle Grid.Row="2" Grid.Column="1" Fill="#004F59"/>
+            <Rectangle Grid.Row="3" Grid.Column="1" Fill="#004F59"/>
+            <Rectangle Grid.Row="4" Grid.Column="1" Fill="#004F59"/>
+            <Rectangle Grid.Row="5" Grid.Column="1" Fill="#004F59"/>
 
             <Border Grid.Column="0" BorderBrush="#f18a00">
                 <Border.BorderThickness>
@@ -67,44 +106,51 @@
                 </Border.BorderThickness>
             </Border>
 
-            <Border Grid.Row="1" Grid.Column="0" BorderBrush="#f18a00">
+            <Border Grid.Row="1" Grid.Column="1" BorderBrush="#f18a00">
                 <Border.BorderThickness>
                     <Thickness Right="3" />
                 </Border.BorderThickness>
             </Border>
 
-            <Border Grid.Row="2" Grid.Column="0" BorderBrush="#f18a00">
+            <Border Grid.Row="0" Grid.Column="5" BorderBrush="#f18a00">
+                <Border.BorderThickness>
+                    <Thickness Bottom="3" />
+                </Border.BorderThickness>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="1" BorderBrush="#f18a00">
                 <Border.BorderThickness>
                     <Thickness Right="3" />
                 </Border.BorderThickness>
             </Border>
 
-            <Border Grid.Row="3" Grid.Column="0" BorderBrush="#f18a00">
+            <Border Grid.Row="3" Grid.Column="1" BorderBrush="#f18a00">
                 <Border.BorderThickness>
                     <Thickness Right="3" />
                 </Border.BorderThickness>
             </Border>
 
-            <Border Grid.Row="4" Grid.Column="0" BorderBrush="#f18a00">
+            <Border Grid.Row="4" Grid.Column="1" BorderBrush="#f18a00">
                 <Border.BorderThickness>
                     <Thickness Right="3" />
                 </Border.BorderThickness>
             </Border>
 
-            <Border Grid.Row="5" Grid.Column="0" BorderBrush="#f18a00">
+            <Border Grid.Row="5" Grid.Column="1" BorderBrush="#f18a00">
                 <Border.BorderThickness>
                     <Thickness Right="3" />
                 </Border.BorderThickness>
             </Border>
 
-            <Label Grid.ColumnSpan="2"  
-               FontSize="40"  Content="Biblioteca YSF"
-               HorizontalAlignment="Center" VerticalAlignment="Center"
-               FontFamily="AR CHRISTY" Foreground="#FFE4DFDF" />
+
+            <Label Grid.ColumnSpan="2" Grid.Column="1"  
+               FontSize="42"  Content="Biblioteca YSF"
+               HorizontalAlignment="Left" VerticalAlignment="Center"
+               FontFamily="AR CHRISTY" Foreground="#FFE4DFDF"/>
 
             <Button x:Name="btnInicio" Content="Inicio" FontSize="23" Width="120" Height="40"
-                    Grid.Row="1"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Grid.Row="1" Grid.Column="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Background="#FFFFFCD8"
                     BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnInicio_Click">
                 <Button.Template>
@@ -118,16 +164,16 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Border Grid.Row="1" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
-                <Border.Background>
-                    <ImageBrush ImageSource="/Imagenes/inicio_icon.png"
+            <Border Grid.Row="1" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                <Border.Background> 
+                    <ImageBrush ImageSource="/Imagenes/home_icon.png"
                                 Stretch="Fill"/>
                 </Border.Background>
             </Border>
 
             <Button x:Name="btnLibro" Content="Libros" FontSize="23" Width="120" Height="40"
-                    Grid.Row="2"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Grid.Row="2" Grid.Column="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Background="#FFFFFCD8"
                     BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnLibro_Click">
                 <Button.Template>
@@ -141,7 +187,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Border Grid.Row="2" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Border Grid.Row="2" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/libro_icon.png"
                                 Stretch="Fill"/>
@@ -149,8 +195,8 @@
             </Border>
 
             <Button x:Name="btnPrestamo" Content="Préstamo" FontSize="23" Width="120" Height="40"
-                    Grid.Row="3"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Grid.Row="3" Grid.Column="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Background="#FFFFFCD8"
                     BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnPrestamo_Click">
                 <Button.Template>
@@ -164,7 +210,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Border Grid.Row="3" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Border Grid.Row="3" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/prestamo_icon.png"
                                 Stretch="Fill"/>
@@ -173,8 +219,8 @@
 
 
             <Button x:Name="btnCerrar" Content="Cerrar" FontSize="23" Width="120" Height="40"
-                    Grid.Row="4"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Grid.Row="4" Grid.Column="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Background="#FFFFFCD8"
                     BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnCerrar_Click">
                 <Button.Template>
@@ -188,68 +234,37 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Border Grid.Row="4" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Border Grid.Row="4" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/logout_icon.png"
                                 Stretch="Fill"/>
                 </Border.Background>
             </Border>
+            <Button Content="Registrar" FontSize="30"
+                    Height="60" Width="150"
+                    Grid.Row="1" Grid.Column="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Background="Transparent" BorderThickness="3"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="White">
+                <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-            <TextBlock 
-                Grid.Column="2"  Grid.Row="1"
-                HorizontalAlignment="Center" VerticalAlignment="Center"   
-                FontSize="35" Text="Registrar Usuario" FontFamily="AR CENA"/>
-
-            <TextBlock 
-                Grid.Column="1"  Grid.Row="2" Grid.ColumnSpan="2"
-                HorizontalAlignment="Left" VerticalAlignment="Top"   
-                FontSize="35" Text="Ingrese nombre" FontFamily="AR CENA" Margin="107,0,0,0"/>
-            <TextBox x:Name="txtNombre" 
-                Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"
-                Height="40" Width="250"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,0,0,0"/>
-
-            <TextBlock 
-                Grid.Column="1"  Grid.Row="2" Grid.ColumnSpan="2"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom"   
-                FontSize="35" Text="Ingrese apellido" FontFamily="AR CENA" Margin="107,0,0,107" Grid.RowSpan="2"/>
-            <TextBox x:Name="txtApellido" 
-                Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"
-                Height="40" Width="250"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="175,0,0,0"/>
-
-            <TextBlock 
-                Grid.Column="1"  Grid.Row="3" Grid.ColumnSpan="2"
-                HorizontalAlignment="Left" VerticalAlignment="Top"   
-                FontSize="32" Text="Ingrese cédula" FontFamily="AR CENA" Margin="107,37,0,0" RenderTransformOrigin="1.207,0.832"/>
-            <TextBox x:Name="txtCedula" 
-                Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"
-                Height="40" Width="250"
-                HorizontalAlignment="Left" VerticalAlignment="Center" Margin="175,0,0,0"/>
-
-            <TextBlock 
-                Grid.Column="1"  Grid.Row="4" Grid.ColumnSpan="2"
-                HorizontalAlignment="Left" VerticalAlignment="Top"   
-                FontSize="35" Text="Ingrese direccion" FontFamily="AR CENA" Margin="107,0,0,0"/>
-            <TextBox x:Name="txtDireccion" 
-                Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2"
-                Height="40" Width="250"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,0,0,0"/>
-
-            <TextBlock 
-                Grid.Column="1"  Grid.Row="4" Grid.ColumnSpan="2"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom"   
-                FontSize="35" Text="Ingrese correo" FontFamily="AR CENA" Margin="107,0,0,0"/>
-            <TextBox x:Name="txtCorreo" 
-                Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2"
-                Height="40" Width="250"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="175,0,0,0"/>
-
-            <Button x:Name="btnGuardar" Content="Guardar" FontSize="23" Width="120" Height="40"
-                    Grid.Row="5" Grid.Column="2"
-                    VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Background="#FFFFFCD8"
-                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnCerrar_Click">
+            <Button x:Name="btnModificar" Content="Modificar" FontSize="30"
+                    Height="60" Width="160"
+                    Grid.Row="1" Grid.Column="3"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Background="Transparent" BorderThickness="3"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3C6D04" 
+                    Click="btnModificarClick">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
@@ -261,6 +276,119 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+
+            <Button x:Name="btnEliminar" Content="Eliminar" FontSize="30"
+                    Height="60" Width="150"
+                    Grid.Row="1" Grid.Column="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Background="Transparent" BorderThickness="3"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3C6D04" Click="btnEliminar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            
+            <TextBox x:Name="txtNombre" Grid.Row="2" Grid.Column="2" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Bottom" HorizontalAlignment="Center"
+             Width="180" Height="40" 
+             Tag="Ingrese Nombre"/>
+
+            <TextBox x:Name="txtApellido" Grid.Row="2" Grid.Column="3" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Bottom" HorizontalAlignment="Center"
+             Width="180" Height="40" 
+             Tag="Ingrese Apellido" />
+
+            <TextBox x:Name="txtCedula" Grid.Row="2" Grid.Column="4" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Bottom" HorizontalAlignment="Center"
+             Width="180" Height="40" 
+             Tag="Ingrese Cédula"/>
+            
+            <TextBox x:Name="txtDireccion" Grid.Row="3" Grid.Column="2" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Bottom" HorizontalAlignment="Center"
+             Width="180" Height="40" 
+             Tag="Ingrese Dirección"/>
+
+            <TextBox x:Name="txtAdicionadoPor" Grid.Row="2" Grid.Column="2" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Top" HorizontalAlignment="Right"
+             Width="150" Height="30" 
+             Tag="Adicionado Por"/>
+
+            <TextBox x:Name="txtFechaAdicion" Grid.Row="2" Grid.Column="4" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Top" HorizontalAlignment="Left"
+             Width="150" Height="30" 
+             Tag="Fecha Adicioon"/>
+
+            <TextBox x:Name="txtCorreo" Grid.Row="3" Grid.Column="4" 
+             FontSize="20"
+             Style="{StaticResource PlaceholderStyle}"
+             VerticalAlignment="Bottom" HorizontalAlignment="Center"
+             Width="180" Height="40" 
+             Tag="Ingrese Correo" />
+
+            <Button x:Name="btnGuardar" Content="Guardar" FontSize="25"
+                    Height="55" Width="140"
+                    Grid.Row="4" Grid.Column="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Background="#0099a8" BorderThickness="4"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3A3636" Click="btnGuardar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="btnLimpiar" Content="Limpiar" FontSize="25"
+                    Height="55" Width="140"
+                    Grid.Row="4" Grid.Column="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Background="#FF74EA27" BorderThickness="4"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3A3636" Click="btnLimpiar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Border Grid.Row="4" Grid.Column="3"  Grid.RowSpan="3"
+                Width="150" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/reading.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+
         </Grid>
     </Grid>
 </Window>

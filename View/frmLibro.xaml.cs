@@ -1,8 +1,6 @@
 ﻿using SistemaGestiónBiblioteca_Yani.Clases;
-using SistemaGestiónBiblioteca_Yani.Conexion;
-using System.Collections.Generic;
+using SistemaGestiónBiblioteca_Yani.Dtos;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace SistemaGestiónBiblioteca_Yani.View
 {
@@ -18,7 +16,6 @@ namespace SistemaGestiónBiblioteca_Yani.View
             frmUsuario ventana = new frmUsuario();
             ventana.Show();
             this.Close();
-
         }
 
         private void btnInicio_Click(object sender, RoutedEventArgs e)
@@ -41,9 +38,35 @@ namespace SistemaGestiónBiblioteca_Yani.View
             this.Close();
         }
 
-        private void lstLibros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            txtFechaAdicion.Text = System.DateTime.Now.ToString();
+            txtAdicionadoPor.Text = "admin";
+            clsLibro libro = new clsLibro(txtTitulo.Text, txtAutor.Text, txtISBN.Text, 
+                txtCategoria.Text,txtDisponibilidad.Text ,
+                txtAdicionadoPor.Text, txtFechaAdicion.Text);
 
+            dtoLibro libdto = new dtoLibro();
+            if(libdto.insertarLibro(libro)== true)
+            {
+                MessageBox.Show("Registro Exitoso");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            frmBuscarLibro ventana = new frmBuscarLibro();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtTitulo.Text = string.Empty;
+            txtAutor.Text = string.Empty;
+            txtISBN.Text = string.Empty;
+            txtCategoria.Text = string.Empty;
+            txtDisponibilidad.Text = string.Empty;
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿<Window x:Class="SistemaGestiónBiblioteca_Yani.View.frmPrestamo"
+﻿<Window x:Class="SistemaGestiónBiblioteca_Yani.View.frmEliminarUsuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaGestiónBiblioteca_Yani.View"
         mc:Ignorable="d"
-        Title="frmPrestamo"
+        Title="frmEliminarUsuario"
         Height="600" Width="850"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -44,6 +44,7 @@
             </Setter>
         </Style>
     </Window.Resources>
+
 
     <Grid>
         <Border Background="#FFEADEA4"
@@ -147,53 +148,7 @@
             <Label Grid.ColumnSpan="2" Grid.Column="1"  
                FontSize="42"  Content="Biblioteca YSF"
                HorizontalAlignment="Left" VerticalAlignment="Center"
-               FontFamily="AR CHRISTY" Foreground="#FFE4DFDF"/>
-
-            <Button x:Name="btnUsuario" Content="Usuario" FontSize="23" Width="120" Height="40"
-                    Grid.Row="2" Grid.Column="1"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                    Background="#FFFFFCD8"
-                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnUsuario_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="10">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Border Grid.Row="2" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
-                <Border.Background>
-                    <ImageBrush ImageSource="/Imagenes/usuario_icon.png"
-                                Stretch="Fill"/>
-                </Border.Background>
-            </Border>
-
-            <Button x:Name="btnLibro" Content="Libros" FontSize="23" Width="120" Height="40"
-                    Grid.Row="3" Grid.Column="1"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                    Background="#FFFFFCD8"
-                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnLibro_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="10">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Border Grid.Row="3" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
-                <Border.Background>
-                    <ImageBrush ImageSource="/Imagenes/libro_icon.png"
-                                Stretch="Fill"/>
-                </Border.Background>
-            </Border>
+               FontFamily="AR CHRISTY" Foreground="#FFE4DFDF" />
 
             <Button x:Name="btnInicio" Content="Inicio" FontSize="23" Width="120" Height="40"
                     Grid.Row="1" Grid.Column="1"
@@ -211,9 +166,55 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Border Grid.Row="1" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+            <Border Grid.Row="1" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/home_icon.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+            <Button x:Name="btnLibro" Content="Libros" FontSize="23" Width="120" Height="40"
+                    Grid.Row="2" Grid.Column="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Background="#FFFFFCD8"
+                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnLibro_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Border Grid.Row="2" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/libro_icon.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+            <Button x:Name="btnPrestamo" Content="Préstamo" FontSize="23" Width="120" Height="40"
+                    Grid.Row="3" Grid.Column="1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Background="#FFFFFCD8"
+                    BorderBrush="#FF111915" BorderThickness="2" FontFamily="AR JULIAN" Click="btnPrestamo_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Border Grid.Row="3" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/prestamo_icon.png"
                                 Stretch="Fill"/>
                 </Border.Background>
             </Border>
@@ -242,10 +243,47 @@
                 </Border.Background>
             </Border>
 
-            <Button Content="Solicitar" FontSize="30"
+            <Button x:Name="btnRegistrar" Content="Registrar" FontSize="30"
                     Height="60" Width="150"
                     Grid.Row="1" Grid.Column="2" 
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Background="Transparent" BorderThickness="3"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3C6D04" 
+                    Click="btnRegistrar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="btnModificar" Content="Modificar" FontSize="30"
+                    Height="60" Width="160"
+                    Grid.Row="1" Grid.Column="3"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Background="Transparent" BorderThickness="3"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3C6D04" Click="btnModificar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="Eliminar" FontSize="30"
+                    Height="60" Width="150"
+                    Grid.Row="1" Grid.Column="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
                     Background="Transparent" BorderThickness="3"
                     FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="White">
                 <Button.Template>
@@ -260,95 +298,22 @@
                 </Button.Template>
             </Button>
 
-            <Button x:Name="btnGestion" Content="Gestión" FontSize="30"
-                    Height="60" Width="160"
-                    Grid.Row="1" Grid.Column="3"
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                    Background="Transparent" BorderThickness="3"
-                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3C6D04" Click="btnGestion_Click" 
-                    >
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="10">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button x:Name="btnDevolucion" Content="Devolución" FontSize="30"
-                    Height="60" Width="180"
-                    Grid.Row="1" Grid.Column="4" 
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                    Background="Transparent" BorderThickness="3"
-                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3C6D04" Click="btnDevolucion_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="10">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Label Content="*El bibliotecario se encargará del préstamo*"
-                   Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="28" FontFamily="AR ESSENCE"/>
-            
-            <TextBox x:Name="txtSolLibro" Grid.Row="3" Grid.Column="2"
+            <TextBox Grid.Row="2" Grid.Column="3" 
              FontSize="20"
              Style="{StaticResource PlaceholderStyle}"
              VerticalAlignment="Center" HorizontalAlignment="Center"
              Width="180" Height="40" 
-             Tag="Ingrese el Libro"/>
+             Tag="Ingrese Cédula"/>
 
-            <TextBox x:Name="txtSolPrestamo" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2"
-             FontSize="20"
-             Style="{StaticResource PlaceholderStyle}"
-             VerticalAlignment="Center" HorizontalAlignment="Center"
-             Width="180" Height="34" 
-             Tag="Activo: Si o No"/>
+            <ListBox Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" 
+                     Background="#FF80E4BD" BorderBrush="#FF000208"/>
 
-            <TextBox x:Name="txtSolCedula" Grid.Row="3" Grid.Column="3"
-             FontSize="20"
-             Style="{StaticResource PlaceholderStyle}"
-             VerticalAlignment="Center" HorizontalAlignment="Center"
-             Width="180" Height="40" 
-             Tag="Ingrese la Cédula"/>
-
-            <DatePicker x:Name="dtpFechaDevolucion" Grid.Row="3" Grid.Column="4"
-            FontSize="16" 
-            VerticalAlignment="Center" HorizontalAlignment="Center"
-            Width="190" Height="30" 
-            Tag="Seleccione fecha"/>
-            
-            <TextBox x:Name="txtAdicionadoPor" Grid.Row="4" Grid.Column="2"
-             FontSize="20" 
-             Style="{StaticResource PlaceholderStyle}"
-             VerticalAlignment="Center" HorizontalAlignment="Center"
-             Width="150" Height="30" 
-             Tag="Adicionado Por"/>
-
-            <TextBox x:Name="txtFechaAdicion" Grid.Row="4" Grid.Column="4"
-             FontSize="20"
-             Style="{StaticResource PlaceholderStyle}"
-             VerticalAlignment="Center" HorizontalAlignment="Center"
-             Width="150" Height="30" 
-             Tag="Fecha Adición"/>
-
-            <Button x:Name="btnSolicitar" Content="Solicitar Libro" FontSize="25"
-                    Height="40" Width="180"
-                    Grid.Row="4" Grid.Column="3" 
+            <Button x:Name="btnEliminar" Content="Eliminar" FontSize="25"
+                    Height="45" Width="140"
+                    Grid.Row="5" Grid.Column="3" 
                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Background="#FFF1B9F1" BorderThickness="3"
-                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF7D0E73" Click="btnSolicitar_Click">
+                    Background="#FFDE621A" BorderThickness="3"
+                    FontFamily="Book Antiqua" FontWeight="Bold" BorderBrush="#FF3A3636" Click="btnEliminar_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
@@ -360,6 +325,22 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+
+            <Border Grid.Row="3" Grid.Column="2"  Grid.RowSpan="2"
+                Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/Delete.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="4"  Grid.RowSpan="2"
+                Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/Delete.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+            </Border>
 
         </Grid>
     </Grid>

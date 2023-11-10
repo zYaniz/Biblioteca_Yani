@@ -1,12 +1,25 @@
-﻿using SistemaGestiónBiblioteca_Yani.Clases;
-using SistemaGestiónBiblioteca_Yani.Dtos;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace SistemaGestiónBiblioteca_Yani.View
 {
-    public partial class frmUsuario : Window
+    /// <summary>
+    /// Lógica de interacción para frmEliminarUsuario.xaml
+    /// </summary>
+    public partial class frmEliminarUsuario : Window
     {
-        public frmUsuario()
+        public frmEliminarUsuario()
         {
             InitializeComponent();
         }
@@ -37,7 +50,14 @@ namespace SistemaGestiónBiblioteca_Yani.View
             this.Close();
         }
 
-        private void btnModificarClick(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        {
+            frmUsuario ventana = new frmUsuario();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             frmActualizarUsuario ventana = new frmActualizarUsuario();
             ventana.Show();
@@ -49,31 +69,6 @@ namespace SistemaGestiónBiblioteca_Yani.View
             frmEliminarUsuario ventana = new frmEliminarUsuario();
             ventana.Show();
             this.Close();
-        }
-
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            txtFechaAdicion.Text = System.DateTime.Now.ToString();
-            txtAdicionadoPor.Text = "admin";
-            clsUsuario usuario = new clsUsuario(txtNombre.Text, txtApellido.Text, txtCedula.Text,
-                txtDireccion.Text, txtCorreo.Text,
-                txtAdicionadoPor.Text, txtFechaAdicion.Text);
-
-            dtoUsuario usbdto = new dtoUsuario();
-            if (usbdto.insertarUsuario(usuario) == true)
-            {
-                MessageBox.Show("Registro Exitoso");
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            txtNombre.Text = string.Empty;
-            txtApellido.Text = string.Empty;
-            txtCedula.Text = string.Empty;
-            txtDireccion.Text = string.Empty;
-            txtCorreo.Text = string.Empty;
-            txtCorreo.Text = string.Empty;
         }
     }
 }
